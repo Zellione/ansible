@@ -16,7 +16,3 @@
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags:
     - zsh
-- name: update our zshrc
-  shell: sed -i 's/(git/(git zsh-autosuggestions/' ~/.zshrc
-  tags:
-    - zsh

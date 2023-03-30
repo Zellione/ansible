@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+HOME=/home/sebastian
+USER=sebastian
+
+ansible-playbook local.yml --ask-vault-pass
