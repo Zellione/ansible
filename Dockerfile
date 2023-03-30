@@ -13,15 +13,15 @@ RUN apt-get update && \
 
 FROM base AS prime
 ARG TAGS
-RUN addgroup --gid 1000 sebastian
-RUN adduser --gecos sebastian --uid 1000 --gid 1000 --disabled-password sebastian
-RUN usermod -g sudo sebastian
-RUN passwd -d sebastian
-USER sebastian
-WORKDIR /home/sebastian
+RUN addgroup --gid 1000 zellione
+RUN adduser --gecos zellione --uid 1000 --gid 1000 --disabled-password zellione
+RUN usermod -g sudo zellione
+RUN passwd -d zellione
+USER zellione
+WORKDIR /home/zellione
 
 FROM prime
 WORKDIR /opt/test
-COPY --chown=sebastian . .
+COPY --chown=zellione . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 
