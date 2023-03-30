@@ -1,9 +1,4 @@
 - name: Ensure .ssh directory exists.
-  become: yes
-  become_user: zellione
-  become_method: su
-  become_flags: '--login'
-  become_exe: 'sudo -p "Password: " su -'
   file:
     dest: "{{ dest_key | dirname }}"
     mode: 0700
@@ -13,11 +8,6 @@
     - install
     - ssh
 - name: Install ssh key
-  become: yes
-  become_user: zellione
-  become_method: su
-  become_flags: '--login'
-  become_exe: 'sudo -p "Password: " su -'
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
@@ -27,11 +17,6 @@
     - install
     - ssh
 - name: Install ssh key public
-  become: yes
-  become_user: zellione
-  become_method: su
-  become_flags: '--login'
-  become_exe: 'sudo -p "Password: " su -'
   copy:
     src: "{{ source_key }}.pub"
     dest: "{{ dest_key }}.pub"

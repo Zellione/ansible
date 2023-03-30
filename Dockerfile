@@ -13,6 +13,7 @@ RUN apt-get update && \
 
 FROM base AS prime
 ARG TAGS
+RUN sed -i 's/\%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD:ALL/g'  /etc/sudoers
 RUN addgroup --gid 1000 zellione
 RUN adduser --gecos zellione --uid 1000 --gid 1000 --disabled-password zellione
 RUN usermod -g sudo zellione
