@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-add-repository -y ppa:ansible/ansible && \
     apt-get update && \
     apt-get install -y curl git ansible build-essential sudo && \
-    apt-add-repository -y ppa:neovim-ppa/unstable && apt update && apt install -y neovim && \
+    #apt-add-repository -y ppa:neovim-ppa/unstable && apt update && apt install -y neovim && \
     apt-get clean autoclean && \
     apt-get autoremove --yes
 
@@ -24,5 +24,6 @@ WORKDIR /home/zellione
 FROM prime
 WORKDIR /opt/test
 COPY --chown=zellione . .
-CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
+#CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
+CMD ["sh", "-c", "./ansible-run"]
 

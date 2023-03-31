@@ -9,7 +9,7 @@
   tags:
     - zsh
 - name: Install ohmyzsh (please don't tell people i use this)
-  shell: curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+  shell: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
   tags:
     - zsh
 - name: Install the zsh plugin autosuggestions
