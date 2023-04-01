@@ -4,7 +4,6 @@
   tags:
     - zsh
 - name: Change shell
-  become: true
   shell: chsh -s `which zsh`
   tags:
     - zsh
