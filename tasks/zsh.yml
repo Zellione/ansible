@@ -4,7 +4,10 @@
   tags:
     - zsh
 - name: Change shell
-  shell: chsh -s `which zsh`
+  become: true
+  user:
+    name: "zellione"
+    shell: chsh -s `which zsh`
   tags:
     - zsh
 - name: Install ohmyzsh (please don't tell people i use this)
