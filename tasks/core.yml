@@ -32,6 +32,14 @@
     - install
     - neovim
     - core
+- name: Install Docker requirements
+  become: true
+  apt:
+    name: ["ca-certificates", "gnupg"]
+  tags:
+    - install
+    - docker
+    - core
 
 # - name: dconf i3
 #   shell: dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
