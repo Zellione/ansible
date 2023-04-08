@@ -23,3 +23,20 @@
   tags:
     - docker
     - install
+- name: Create group Docker
+  become: true
+  group:
+    name: docker
+    state: present
+  tags:
+    - docker
+    - install
+- name: Add to group Docker
+  become: true
+  user:
+    name: zellione
+    groups: docker
+    append: yes
+  tags:
+    - docker
+    - install
