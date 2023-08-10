@@ -31,7 +31,7 @@
   tags:
     - docker
     - install
-- name: Add to group Docker
+- name: Add user to group
   become: true
   user:
     name: zellione
