@@ -1,0 +1,40 @@
+- name: Install core packages for development
+  become: true
+  community.general.pacman:
+    name:
+      - base-devel
+      - cmake
+      - unzip
+      - ninja
+      - curl
+      - git
+      - wl-clipboard
+      - xclip
+    state: latest
+  tags:
+    - install
+    - core
+
+- name: Install core packages for connectivity
+  become: true
+  community.general.pacman:
+    name:
+      - openssh
+    state: latest
+  tags:
+    - install
+    - core
+
+- name: Download yay from AUR Repository
+  ansible.builtin.git:
+    repo: 'https://aur.archlinux.org/yay.git'
+    dest: "{{ personal }}/yay"
+  tags:
+    - install
+    - core
+
+- name: Build and install yay
+  shell: "cd {{ personal }}/yay && makepkg -si --noconfirm"
+  tags:
+    - install
+    - core

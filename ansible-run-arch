@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+HOME=/home/zellione
+USER=zellione
+
+ansible-playbook arch.yml --ask-vault-pass
