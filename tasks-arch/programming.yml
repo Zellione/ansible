@@ -1,0 +1,42 @@
+- name: Install GO language
+  become: true
+  community.general.pacman:
+    name:
+      - go
+    state: latest
+  tags:
+    - install
+    - programming
+    - go
+
+- name: Install LUA language
+  become: true
+  community.general.pacman:
+    name:
+      - lua
+    state: latest
+  tags:
+    - install
+    - programming
+    - lua
+
+- name: Install clang and CCache
+  become: true
+  community.general.pacman:
+    name:
+      - clang
+      - clang14
+      - clang15
+      - ccache
+    state: latest
+  tags:
+    - install
+    - programming
+    - clang
+
+- name: Install Python
+  become: true
+  community.general.pacman:
+    name:
+      - python
+      - python-pip

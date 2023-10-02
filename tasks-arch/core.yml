@@ -8,8 +8,8 @@
       - ninja
       - curl
       - git
-      - wl-clipboard
-      - xclip
+      - pkgconf
+      - gettext
     state: latest
   tags:
     - install
@@ -20,10 +20,37 @@
   community.general.pacman:
     name:
       - openssh
+      - curl
+      - wget
+      - wireshark-qt
     state: latest
   tags:
     - install
     - core
+
+- name: Install core packages for productivity
+  become: true
+  community.general.pacman:
+    name:
+      - fzf
+      - tmux
+      - ripgrep
+      - wl-clipboard
+      - xclip
+      - tldr
+      - screenkey
+      - shutter
+      - kdenlive
+      - gimp
+      - less
+      - lsof
+      - htop
+      - moreutils
+    state: latest
+  tags:
+    - install
+    - core
+    - productivity
 
 - name: Download yay from AUR Repository
   ansible.builtin.git:
@@ -38,3 +65,14 @@
   tags:
     - install
     - core
+
+- name: Install NVIDIA Drivers
+  become: true
+  community.general.pacman:
+    name:
+      - nvidia
+      - nvidia-settings
+      - nvidia-utils
+      - cuda
+      - cuda-tools
+      - cudnn
