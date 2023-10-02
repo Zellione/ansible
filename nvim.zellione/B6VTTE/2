@@ -1,0 +1,9 @@
+Objekte aufzählen: 14, fertig.
+Zähle Objekte: 100% (14/14), fertig.
+Delta-Kompression verwendet bis zu 20 Threads.
+Komprimiere Objekte: 100% (9/9), fertig.
+Schreibe Objekte: 100% (9/9), 1.86 KiB | 1.86 MiB/s, fertig.
+Gesamt 9 (Delta 4), Wiederverwendet 0 (Delta 0), Pack wiederverwendet 0
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.        
+To github.com:Zellione/ansible.git
+   ea90213..d3fd02f  master -> master

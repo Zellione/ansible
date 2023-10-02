@@ -1,3 +1,13 @@
+- name: Install Essential core packages
+  become: true
+  community.general.pacman:
+    name:
+      - zip
+    state: latest
+  tags:
+    - install
+    - core
+
 - name: Install core packages for development
   become: true
   community.general.pacman:

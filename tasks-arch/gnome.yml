@@ -1,0 +1,114 @@
+- name: Install wayland
+  become: true
+  community.general.pacman:
+    name:
+      - wayland
+      - xorg-xwayland
+      - alacritty
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gdm
+  become: true
+  community.general.pacman:
+    name: gdm
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome
+  become: true
+  community.general.pacman:
+    name: gnome
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> forge
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-forge
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> just perfection
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-just-perfection-desktop
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+# - name: Install gnome shell extension -> search light
+#   become: yes
+#   become_user: aur_builder
+#   aur:
+#     name:  gnome-shell-extension-search-light-git
+#     use: yay
+#     state: latest
+#   tags:
+#     - install
+#     - ui
+
+- name: Checkout gnome shell extension -> search light
+  ansible.builtin.git:
+    repo: 'https://github.com/icedman/search-light'
+    dest: "{{ personal }}/search-light"
+    version: g44
+  tags:
+    - install
+    - core
+
+- name: Built  gnome shell extension -> search light
+  ansible.builtin.shell:
+    cmd: make
+    chdir: "{{ personal }}/search-light"
+  tags:
+    - install
+    - core
+
+- name: Checkout gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
+  ansible.builtin.git:
+    repo: 'https://github.com/G-dH/advanced-alttab-window-switcher.git'
+    dest: "{{ personal }}/aatws"
+  tags:
+    - install
+    - core
+
+- name: Built  gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
+  ansible.builtin.shell:
+    cmd: make
+    chdir: "{{ personal }}/aatws"
+  tags:
+    - install
+    - core
+
+- name: Install gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
+  ansible.builtin.shell:
+    cmd: "make install && gnome-extensions install --force advanced-alt-tab@G-dH.github.com.zip"
+    chdir: "{{ personal }}/aatws"
+  tags:
+    - install
+    - core
+
+- name: Install gradience
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gradience
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui

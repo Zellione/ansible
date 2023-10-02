@@ -10,6 +10,7 @@
 - name: Add user to docker group
   become: true
   ansible.builtin.user:
+    name: "{{ username }}"
     groups: docker
     state: present
 

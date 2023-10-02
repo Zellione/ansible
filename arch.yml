@@ -3,6 +3,7 @@
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
+    username: "zellione"
   pre_tasks:
     - name: Update pacman
       become: true
@@ -13,6 +14,7 @@
       tags:
         - install
   tasks:
+    - import_tasks: tasks-arch/aur.yml
     - import_tasks: tasks-arch/core.yml
     - import_tasks: tasks-arch/programming.yml
     - import_tasks: tasks-arch/git.yml
@@ -24,3 +26,4 @@
     - import_tasks: tasks-arch/nvim.yml
     - import_tasks: tasks-arch/lsp.yml
     - import_tasks: tasks-arch/docker.yml
+    - import_tasks: tasks-arch/gnome.yml

@@ -3,7 +3,7 @@
 - Forge: Tiling window manager
 - Gradience: Makes nice tint to the color scheme
 - Just perfection: Make small changes everywhere
-- ATTWS: Alternative Window switcher
+- AATWS: Alternative Window switcher
 - Login Manager Settings: Change how login manager look and behave
 - Pano: visual clipboard: Visualize your clipboard history
 - Search light: dont make gnome search go into fullscreen
@@ -17,10 +17,13 @@
 - Arc Menu: Looks like windows start menu
 - Vitals: System Resource Monitor
 - GS Connect: Connect devices
-- import_tasks: tasks-arch/lsp.yml
 - OpenWeather: Weather forecast
 - LockingPC: Lock your PC before turning of monitors
 
 ## Websites
 
 check out https://www.gnome-look.org
+
+## Spotify
+
+check out spicetify to customize spotify client
