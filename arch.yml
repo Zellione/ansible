@@ -27,3 +27,4 @@
     - import_tasks: tasks-arch/lsp.yml
     - import_tasks: tasks-arch/docker.yml
     - import_tasks: tasks-arch/gnome.yml
+    - import_tasks: tasks-arch/language-input.yml

@@ -33,6 +33,8 @@
       - curl
       - wget
       - wireshark-qt
+      - networkmanager
+      - network-manager-applet
     state: latest
   tags:
     - install

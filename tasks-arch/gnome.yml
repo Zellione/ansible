@@ -112,3 +112,100 @@
   tags:
     - install
     - ui
+
+- name: Install gnome shell extension -> Arc Menu
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-arc-menu
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> Dash to Panel
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-dash-to-panel
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> AppIndicators
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-appindicator
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> Gnome Tweaks
+  become: true
+  community.general.pacman:
+    name: gnome-tweaks
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> Vitals
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-vitals
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> Pano
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-pano
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> Blur my Shell
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-blur-my-shell
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gnome shell extension -> OpenWeather
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gnome-shell-extension-openweather
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
+
+- name: Install gdm-settings
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: gdm-settings
+    use: yay
+    state: latest
+  tags:
+    - install
+    - ui
