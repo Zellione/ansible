@@ -109,9 +109,7 @@
 
 - name: Activate pipewire pulse
   ansible.builtin.systemd:
-    name:
-      - pipewire-pulse
-      - pipewire
+    name: pipewire-pulse
     state: started
     enabled: true
     scope: user
@@ -119,3 +117,16 @@
     - install
     - core
     - drivers
+  ignore_errors: true
+
+- name: Activate pipewire
+  ansible.builtin.systemd:
+    name: pipewire
+    state: started
+    enabled: true
+    scope: user
+  tags:
+    - install
+    - core
+    - drivers
+  ignore_errors: true

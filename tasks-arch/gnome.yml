@@ -212,3 +212,4 @@
 
 - name: Load saved gnome configuration
   shell: "dconf load / < gnome-config/dconf-settings.ini"
+  ignore_errors: true
