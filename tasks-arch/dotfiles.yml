@@ -22,7 +22,11 @@
     - stow
 
 - name: Remove zshrc
-  shell: rm ~/.zshrc
+  ansible.builtin.file:
+    path: ~/.zshrc
+    state: absent
+  
+   #shell: rm ~/.zshrc
   tags:
     - install
     - dotfiles

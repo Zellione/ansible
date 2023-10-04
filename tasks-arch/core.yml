@@ -88,3 +88,34 @@
       - cuda
       - cuda-tools
       - cudnn
+  tags:
+    - install
+    - core
+    - drivers
+
+- name: Install pipewire and replace pulseaudio
+  become: true
+  community.general.pacman:
+    name:
+      - wireplumber
+      - pipewire-pulse
+      - pipewire-alsa
+      - pipewire-x11-bell
+      - pipewire-zeroconf
+  tags:
+    - install
+    - core
+    - drivers
+
+- name: Activate pipewire pulse
+  ansible.builtin.systemd:
+    name:
+      - pipewire-pulse
+      - pipewire
+    state: started
+    enabled: true
+    scope: user
+  tags:
+    - install
+    - core
+    - drivers

@@ -68,7 +68,7 @@
     version: g44
   tags:
     - install
-    - core
+    - ui
 
 - name: Built  gnome shell extension -> search light
   ansible.builtin.shell:
@@ -76,7 +76,7 @@
     chdir: "{{ personal }}/search-light"
   tags:
     - install
-    - core
+    - ui
 
 - name: Checkout gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
   ansible.builtin.git:
@@ -84,7 +84,7 @@
     dest: "{{ personal }}/aatws"
   tags:
     - install
-    - core
+    - ui
 
 - name: Built  gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
   ansible.builtin.shell:
@@ -92,7 +92,7 @@
     chdir: "{{ personal }}/aatws"
   tags:
     - install
-    - core
+    - ui
 
 - name: Install gnome shell extension -> AATWS (Advanced Alt-Tab Window Switcher)
   ansible.builtin.shell:
@@ -100,7 +100,7 @@
     chdir: "{{ personal }}/aatws"
   tags:
     - install
-    - core
+    - ui
 
 - name: Install gradience
   become: yes
@@ -209,3 +209,6 @@
   tags:
     - install
     - ui
+
+- name: Load saved gnome configuration
+  shell: "dconf load / < gnome-config/dconf-settings.ini"
