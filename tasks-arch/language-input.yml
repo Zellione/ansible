@@ -14,6 +14,10 @@
   community.general.pacman:
     name:
       - adobe-source-han-sans-jp-fonts
+      - adobe-source-han-serif-jp-fonts
+      - adobe-source-han-sans-cn-fonts
+      - adobe-source-han-serif-cn-fonts
+      - noto-fonts-cjk
     state: latest
   tags:
     - install
