@@ -29,3 +29,4 @@
     - import_tasks: tasks-arch/gnome.yml
     - import_tasks: tasks-arch/language-input.yml
     - import_tasks: tasks-arch/repositories.yml
+    - import_tasks: tasks-arch/multimedia.yml
