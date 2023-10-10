@@ -40,3 +40,15 @@
     name:
       - python
       - python-pip
+
+- name: Install codelldap
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: codelldb
+    use: yay
+    state: latest
+  tags:
+    - install
+    - programming
+    - clang

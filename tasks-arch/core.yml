@@ -3,6 +3,8 @@
   community.general.pacman:
     name:
       - zip
+      - man-db
+      - mesa-utils
     state: latest
   tags:
     - install
@@ -130,3 +132,16 @@
     - core
     - drivers
   ignore_errors: true
+
+
+- name: Install Browsers
+  become: true
+  community.general.pacman:
+    name:
+      - chromium
+      - firefox
+    state: latest
+  tags:
+    - install
+    - core
+    - browsers
