@@ -18,10 +18,12 @@
       - adobe-source-han-sans-cn-fonts
       - adobe-source-han-serif-cn-fonts
       - noto-fonts-cjk
+      - noto-fonts
     state: latest
   tags:
     - install
     - core
+    - fonts
 
 - name: Install input method
   become: true
