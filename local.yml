@@ -26,3 +26,4 @@
     - import_tasks: tasks/productivity-tools.yml
     - import_tasks: tasks/lsp.yml
     - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/repositories.yml

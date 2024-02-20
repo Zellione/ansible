@@ -11,7 +11,21 @@
 - name: Install packages
   become: true
   apt:
-    name: [ "tmux", "wireshark", "fzf", "kdenlive", "gimp", "xclip", "screenkey", "tldr", "ripgrep", "shutter" ]
+    name: [ "tmux", "fzf", "tldr", "ripgrep" ]
   tags:
     - install
+    - productivity
+
+- name: Install UI packages
+  become: true
+  apt:
+    name:
+      - wireshark
+      - kdenlive
+      - xclip
+      - screenkey
+      - shutter
+      - gimp
+  tags:
+    - install_ui
     - productivity

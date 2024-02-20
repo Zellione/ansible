@@ -4,6 +4,8 @@
     name: ['nodejs', 'npm']
   tags:
     - node
+    - install
+
 - name: Install n
   become: true
   npm:
@@ -11,8 +13,11 @@
     global: true
   tags:
     - node
+    - install
+
 - name: n 18
   become: true
   shell: n 18
   tags:
     - node
+    - install

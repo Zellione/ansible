@@ -19,7 +19,7 @@
 - name: Install System Packages 3 (the rest)
   become: true
   apt:
-    name: [ "compton", "curl", "htop", "golang", "lsof", "i3", "ccache", "ninja-build", "python3-pip", "python3-venv", "dconf-editor", "nvidia-settings", "pavucontrol", "moreutils", "clangd" ]
+    name: [ "curl", "htop", "golang", "lsof", "ccache", "ninja-build", "python3-pip", "python3-venv", "moreutils", "clangd" ]
   tags:
     - install
     - core
@@ -32,6 +32,17 @@
     - install
     - neovim
     - core
+
+- name: Install Development Tools
+  become: true
+  apt:
+    name:
+      - cargo
+    tags:
+      - install
+      - core
+      - development
+
 - name: Install Docker requirements
   become: true
   apt:
@@ -40,25 +51,40 @@
     - install
     - docker
     - core
-- name: Install MATE Desktop
+
+
+- name: Install desktop environment
   become: true
   apt:
-    name: ["mate-desktop-environment", "mate-desktop-environment-extras", "ubuntu-mate-themes"]
+    name:
+      - i3
+      - dconf-editor
+      - nvidia-settings
+      - pavucontrol
+      - compton
   tags:
-    - install
-    - mate
     - core
+    - install_ui
 
-- name: dconf i3
-  shell: dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
-  tags:
-    - install
-    - core
+#- name: Install MATE Desktop
+#  become: true
+#  apt:
+#    name: ["mate-desktop-environment", "mate-desktop-environment-extras", "ubuntu-mate-themes"]
+#  tags:
+#    - install
+#    - mate
+#    - core
 
-- name: dconf i3
-  shell: dconf write /org/mate/desktop/background/show-desktop-icons "false"
-  tags:
-    - install
-    - core
+#- name: dconf i3
+#  shell: dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
+#  tags:
+#    - install
+#    - core
+#
+#- name: dconf i3
+#  shell: dconf write /org/mate/desktop/background/show-desktop-icons "false"
+#  tags:
+#    - install
+#    - core
 
 

@@ -1,6 +1,0 @@
-- name: Download repository for wallpapers
-  ansible.builtin.git:
-    repo: 'git@github.com:Zellione/wallpaper.git'
-    dest: "~/Pictures/wallpapers"
-  tags:
-    - repositories

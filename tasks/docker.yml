@@ -6,6 +6,7 @@
   tags:
     - install
     - docker
+
 - name: Add Docker Repository
   become: true
   apt_repository:
@@ -14,6 +15,7 @@
   tags:
     - docker
     - install
+
 - name: Update apt and install docker-ce
   become: true
   apt:
@@ -23,6 +25,7 @@
   tags:
     - docker
     - install
+
 - name: Create group Docker
   become: true
   group:
@@ -31,6 +34,7 @@
   tags:
     - docker
     - install
+
 - name: Add user to group
   become: true
   user:

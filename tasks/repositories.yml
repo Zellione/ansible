@@ -1,0 +1,15 @@
+- name: Download repository for wallpapers
+  ansible.builtin.git:
+    repo: 'git@github.com:Zellione/wallpaper.git'
+    dest: "~/wallpapers"
+  tags:
+    - install
+    - repositories
+
+- name: Download repository for FastShop
+  ansible.builtin.git:
+    repo: 'git@github.com:Zellione/FastShop.git'
+    dest: "~/projects/FastShop"
+  tags:
+    - install
+    - repositories

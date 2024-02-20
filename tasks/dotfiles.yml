@@ -5,6 +5,7 @@
     - install
     - dotfiles
     - stow
+
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com:Zellione/.dotfiles.git'
@@ -17,12 +18,14 @@
     - install
     - dotfiles
     - stow
+
 - name: Remove zshrc
   shell: rm ~/.zshrc
   tags:
     - install
     - dotfiles
     - stow
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./ubuntu
   tags:
