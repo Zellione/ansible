@@ -13,3 +13,11 @@
   tags:
     - install
     - repositories
+
+- name: Download repository for Advent of Code
+  ansible.builtin.git:
+    repo: 'git@github.com:Zellione/advent_of_code.git'
+    dest: "~/personal/advent_of_code"
+  tags:
+    - install
+    - repositories

@@ -16,6 +16,15 @@
     - install
     - productivity
 
+- name: Install TPM (TMUX plugin manager)
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+
 - name: Install UI packages
   become: true
   apt:
