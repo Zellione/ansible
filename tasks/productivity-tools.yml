@@ -24,6 +24,9 @@
     update: yes
     accept_hostkey: yes
     version: master
+  tags:
+    - install
+    - productivity
 
 - name: Install UI packages
   become: true
@@ -38,3 +41,13 @@
   tags:
     - install_ui
     - productivity
+
+- name: Install console tools
+  become: true
+  apt:
+    name:
+      - jq
+  tags:
+  - productivity
+  - console
+  - install
