@@ -8,6 +8,10 @@
     - install
     - ssh
 
+# - name: Check if ssh key already exist
+#   local_action: stat path={{ dest_key }}
+#   register: file
+
 - name: Install ssh key
   copy:
     src: "{{ source_key }}"
