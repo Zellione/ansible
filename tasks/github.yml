@@ -1,0 +1,35 @@
+- name: Github APT Key
+  become: true
+  apt_key:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    state: present
+  tags:
+    - install
+    - github
+
+- name: Install Github CLI Repository
+  become: true
+  apt_repository:
+    repo: deb [arch=amd64] https://cli.github.com/packages stable main
+    state: present
+  tags:
+    - install
+    - github
+
+- name: Install Github CLI
+  become: true
+  apt:
+    name: gh
+    state: latest
+    update_cache: true
+  tags:
+    - install
+    - github
+
+- name: Install Copilot Extension
+  ansible.builtin.shell:
+    cmd: gh extension install github/gh-copilot
+  tags:
+    - install
+    - github
+
