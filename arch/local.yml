@@ -1,0 +1,32 @@
+- hosts: localhost
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
+    username: "zellione"
+  pre_tasks:
+    - name: Update pacman
+      become: true
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+        state: present
+      tags:
+        - install
+  tasks:
+    - import_tasks: tasks/aur.yml
+    # - import_tasks: tasks/core.yml
+    # - import_tasks: tasks/programming.yml
+    # - import_tasks: tasks/git.yml
+    - import_tasks: tasks/ssh.yml
+    # - import_tasks: tasks/zsh.yml
+    # - import_tasks: tasks/dotfiles.yml
+    # - import_tasks: tasks/node.yml
+    # - import_tasks: tasks/npm-packages.yml
+    # - import_tasks: tasks/nvim.yml
+    # - import_tasks: tasks/lsp.yml
+    # - import_tasks: tasks/docker.yml
+    # - import_tasks: tasks/gnome.yml
+    # - import_tasks: tasks/language-input.yml
+    # - import_tasks: tasks/repositories.yml
+    # - import_tasks: tasks/multimedia.yml
