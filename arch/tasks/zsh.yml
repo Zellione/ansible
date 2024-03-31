@@ -1,0 +1,28 @@
+- name: Install zsh
+  become: true
+  community.general.pacman:
+    name: zsh
+  tags:
+    - zsh
+
+- name: Change shell
+  become: true
+  user:
+    name: "zellione"
+    shell: /bin/zsh
+  tags:
+    - zsh
+
+- name: Install ohmyzsh (please don't tell people i use this)
+  shell: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
+  args:
+    creates: ~/.oh-my-zsh
+  tags:
+    - zsh
+
+- name: Install the zsh plugin autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+  tags:
+    - zsh

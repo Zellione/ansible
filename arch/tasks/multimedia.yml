@@ -1,0 +1,17 @@
+- name: Install hypnotix
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: hypnotix
+    use: yay
+    state: latest
+  tags:
+    - multimedia
+
+- name: Install mpv
+  become: true
+  community.general.pacman:
+    name: mpv
+    state: latest
+  tags:
+    - multimedia
