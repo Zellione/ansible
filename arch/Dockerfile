@@ -15,6 +15,6 @@ WORKDIR /home/zellione
 FROM zellione
 WORKDIR /opt/test
 COPY --chown=zellione ./arch .
-COPY --chown=zellione ./.ssh ./.ssh
+COPY --chown=zellione ./.ssh ../.ssh
 # #CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 CMD ["sh", "-c", "./ansible-arch"]

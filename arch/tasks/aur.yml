@@ -6,7 +6,6 @@
     group: wheel
   tags:
     - aur
-    - install
 
 - name: Allow the `aur_builder` user to run `sudo pacman` without a password
   become: yes
@@ -18,4 +17,3 @@
     validate: 'visudo -cf %s'
   tags:
     - aur
-    - install

@@ -5,7 +5,6 @@
     state: directory
   tags:
     - dotfiles
-    - install
     - ssh
 
 - name: Install ssh key
@@ -13,17 +12,19 @@
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
     mode: 0600
+    force: no
+  when: "dest_key is not file"
   tags:
     - dotfiles
-    - install
     - ssh
 
 - name: Install ssh key public
   copy:
     src: "{{ source_key }}.pub"
-    dest: "{{ dest_key }}.pub"
+    dest: "{{ dest_pub_key }}"
     mode: 0644
+    force: no
+  when: "dest_pub_key is not file"
   tags:
     - dotfiles
-    - install
     - ssh

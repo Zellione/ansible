@@ -1,0 +1,57 @@
+- name: Install GO language
+  become: true
+  community.general.pacman:
+    name:
+      - go
+    state: latest
+  tags:
+    - programming
+    - go
+
+- name: Install LUA language
+  become: true
+  community.general.pacman:
+    name:
+      - lua
+    state: latest
+  tags:
+    - programming
+    - lua
+
+- name: Install clang and CCache
+  become: true
+  community.general.pacman:
+    name:
+      - clang
+      - clang14
+      - clang16
+      - ccache
+    state: latest
+  tags:
+    - programming
+    - clang
+
+- name: Install Python
+  become: true
+  community.general.pacman:
+    name:
+      - python
+      - python-pip
+
+- name: Install codelldap
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: codelldb-bin
+    use: yay
+    state: latest
+  tags:
+    - programming
+    - clang
+  ignore_errors: yes
+
+- name: Install Java
+  become: true
+  community.general.pacman:
+    name:
+      - jdk17-openjdk

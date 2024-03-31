@@ -1,0 +1,20 @@
+- name: install node
+  become: true
+  community.general.pacman:
+    name: ['nodejs', 'npm']
+  tags:
+    - node
+
+- name: Install n
+  become: true
+  npm:
+    name: n
+    global: true
+  tags:
+    - node
+
+- name: n 21
+  become: true
+  shell: n 21
+  tags:
+    - node
