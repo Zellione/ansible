@@ -3,4 +3,4 @@
 HOME=/home/zellione
 USER=zellione
 
-ansible-playbook local.yml -t install --ask-vault-pass
+ansible-playbook local.yml --ask-vault-pass

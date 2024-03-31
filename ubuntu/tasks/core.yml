@@ -3,7 +3,6 @@
   apt:
     name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev"]
   tags:
-    - install
     - neovim
     - core
 
@@ -12,7 +11,6 @@
   apt:
     name: [ "lua5.1", "unzip", "libtool", "libtool-bin", "gettext"]
   tags:
-    - install
     - neovim
     - core
 
@@ -21,7 +19,6 @@
   apt:
     name: [ "curl", "htop", "golang", "lsof", "ccache", "ninja-build", "python3-pip", "python3-venv", "moreutils", "clangd" ]
   tags:
-    - install
     - core
 
 - name: Install Clang
@@ -29,7 +26,6 @@
   apt:
     name: ["clang", "clang-11", "clang-12", "clang-15", "clangd", "clangd-11", "clangd-12", "clangd-15"]
   tags:
-    - install
     - neovim
     - core
 
@@ -38,10 +34,9 @@
   apt:
     name:
       - cargo
-    tags:
-      - install
-      - core
-      - development
+  tags:
+    - core
+    - development
 
 - name: check if cargo is installed
   shell: command -v cargo
@@ -49,7 +44,6 @@
   ignore_errors: yes
   tags:
     - rust
-    - install
     - core
     - development
 
@@ -62,7 +56,6 @@
     force: 'yes'
   tags:
     - rust
-    - install
     - core
     - development
 
@@ -71,7 +64,6 @@
   shell: /tmp/sh.rustup.rs -y
   tags:
     - rust
-    - install
     - core
     - development
 
@@ -80,7 +72,6 @@
   apt:
     name: ["ca-certificates", "gnupg"]
   tags:
-    - install
     - docker
     - core
 
@@ -96,7 +87,7 @@
       - compton
   tags:
     - core
-    - install_ui
+    - ui
 
 #- name: Install MATE Desktop
 #  become: true

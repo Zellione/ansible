@@ -4,7 +4,6 @@
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
   tags:
-    - install
     - docker
 
 - name: Add Docker Repository
@@ -14,7 +13,6 @@
     state: present
   tags:
     - docker
-    - install
 
 - name: Update apt and install docker-ce
   become: true
@@ -24,7 +22,6 @@
     update_cache: true
   tags:
     - docker
-    - install
 
 - name: Create group Docker
   become: true
@@ -33,7 +30,6 @@
     state: present
   tags:
     - docker
-    - install
 
 - name: Add user to group
   become: true
@@ -43,4 +39,3 @@
     append: yes
   tags:
     - docker
-    - install

@@ -4,7 +4,6 @@
     recursive: yes
     dest: "{{ personal }}/sumneko"
   tags:
-    - install
     - lsp
 
 - name: build the damn sumneko deez lsp
@@ -12,7 +11,6 @@
     cmd: ./compile/install.sh
     chdir: "{{ personal }}/sumneko/3rd/luamake"
   tags:
-    - install
     - lsp
 
 - name: Finish the dude off with the built
@@ -20,5 +18,4 @@
     cmd: ./3rd/luamake/luamake rebuild
     chdir: "{{ personal }}/sumneko/"
   tags:
-    - install
     - lsp

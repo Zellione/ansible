@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get clean autoclean && \
     apt-get autoremove --yes
 
-FROM base AS prime
+FROM base AS zelli
 ARG TAGS
 RUN sed -i 's/\%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD:ALL/g'  /etc/sudoers
 RUN addgroup --gid 1000 zellione
@@ -21,9 +21,10 @@ RUN passwd -d zellione
 USER zellione
 WORKDIR /home/zellione
 
-FROM prime
+FROM zelli
 WORKDIR /opt/test
-COPY --chown=zellione . .
+COPY --chown=zellione ./ubuntu .
+COPY --chown=zellione ./.ssh ../.ssh
 #CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 CMD ["sh", "-c", "./ansible-run"]
 

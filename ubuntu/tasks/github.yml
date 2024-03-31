@@ -4,7 +4,6 @@
     url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
     state: present
   tags:
-    - install
     - github
 
 - name: Install Github CLI Repository
@@ -13,7 +12,6 @@
     repo: deb [arch=amd64] https://cli.github.com/packages stable main
     state: present
   tags:
-    - install
     - github
 
 - name: Install Github CLI
@@ -23,7 +21,6 @@
     state: latest
     update_cache: true
   tags:
-    - install
     - github
 
 # - name: Install Copilot Extension

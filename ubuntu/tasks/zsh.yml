@@ -3,7 +3,6 @@
   apt: name=zsh
   tags:
     - zsh
-    - install
 
 - name: Change shell
   become: true
@@ -12,15 +11,13 @@
     shell: /bin/zsh
   tags:
     - zsh
-    - install
 
 - name: Install ohmyzsh (please don't tell people i use this)
-  command: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
+  shell: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
   args:
-    creates: ~/.zshrc
+    creates: ~/.oh-my-zsh
   tags:
     - zsh
-    - install
 
 - name: Install the zsh plugin autosuggestions
   ansible.builtin.git:
@@ -28,4 +25,3 @@
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags:
     - zsh
-    - install

@@ -5,7 +5,6 @@
     value: "nagels.sebastian@gmail.com"
   tags:
   - git
-  - install
 
 - name: Git setup name
   git_config:
@@ -14,4 +13,3 @@
     value: "Zellione"
   tags:
   - git
-  - install

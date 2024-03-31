@@ -4,7 +4,6 @@
     name: yarn
     global: yes
   tags:
-    - install
     - node
 
 - name: Install PNPM
@@ -13,7 +12,6 @@
     name: pnpm
     global: yes
   tags:
-    - install
     - node
 
 - name: Install eslint
@@ -22,7 +20,6 @@
     name: eslint
     global: yes
   tags:
-    - install
     - node
 
 - name: Install Typescript server
@@ -31,7 +28,6 @@
     name: typescript-language-server
     global: yes
   tags:
-    - install
     - node
 
 - name: Install Typescript
@@ -40,7 +36,6 @@
     name: typescript
     global: yes
   tags:
-    - install
     - node
 
 - name: Install TS-Node
@@ -49,6 +44,5 @@
     name: ts-node
     global: yes
   tags:
-    - install
     - node
 

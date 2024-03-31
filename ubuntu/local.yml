@@ -1,7 +1,8 @@
 - hosts: localhost
   vars:
-    source_key: "./.ssh/id_ed25519"
+    source_key: "../.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    dest_pub_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
     - name: Update apt
@@ -11,7 +12,6 @@
         update_cache: true
         state: present
       tags:
-        - install
         - core
   tasks:
     - import_tasks: tasks/ssh.yml
@@ -31,5 +31,5 @@
     - import_tasks: tasks/fonts.yml
   handlers:
     - name: Update font cache
-      command: fc-fache -fv
+      command: fc-cache -fv
       listen: "update font cache"

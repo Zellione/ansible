@@ -5,7 +5,6 @@
    state: present
    update_cache: True
   tags:
-    - install
     - productivity
 
 - name: Install packages
@@ -13,7 +12,6 @@
   apt:
     name: [ "tmux", "fzf", "tldr", "ripgrep" ]
   tags:
-    - install
     - productivity
 
 - name: Install TPM (TMUX plugin manager)
@@ -25,7 +23,6 @@
     accept_hostkey: yes
     version: master
   tags:
-    - install
     - productivity
 
 - name: Install UI packages
@@ -39,7 +36,7 @@
       - shutter
       - gimp
   tags:
-    - install_ui
+    - ui
     - productivity
 
 - name: Install console tools
@@ -50,4 +47,3 @@
   tags:
   - productivity
   - console
-  - install

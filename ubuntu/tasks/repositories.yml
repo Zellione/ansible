@@ -3,7 +3,6 @@
     repo: 'git@github.com:Zellione/wallpaper.git'
     dest: "~/wallpapers"
   tags:
-    - install
     - repositories
 
 - name: Download repository for FastShop
@@ -11,7 +10,6 @@
     repo: 'git@github.com:Zellione/FastShop.git'
     dest: "~/projects/FastShop"
   tags:
-    - install
     - repositories
 
 - name: Download repository for Advent of Code
@@ -19,5 +17,4 @@
     repo: 'git@github.com:Zellione/advent_of_code.git'
     dest: "~/personal/advent_of_code"
   tags:
-    - install
     - repositories

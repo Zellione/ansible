@@ -5,7 +5,6 @@
     depth: 1
     force: yes
   tags:
-    - install
     - nerd-fonts
     - fonts
 
@@ -18,7 +17,6 @@
       - '^.*?((?!Windows).)*?\.ttf$'
   register: fonts_to_install
   tags:
-    - install
     - nerd-fonts
     - fonts
 
@@ -28,7 +26,6 @@
     mode: 0755
     state: directory
   tags:
-    - install
     - nerd-fonts
     - fonts
 
@@ -41,6 +38,5 @@
   notify:
     - update font cache
   tags:
-    - install
     - nerd-fonts
     - fonts
