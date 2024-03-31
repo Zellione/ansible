@@ -28,3 +28,8 @@
     - import_tasks: tasks/docker.yml
     - import_tasks: tasks/github.yml
     - import_tasks: tasks/repositories.yml
+    - import_tasks: tasks/fonts.yml
+  handlers:
+    - name: Update font cache
+      command: fc-fache -fv
+      listen: "update font cache"

@@ -15,7 +15,9 @@
     - install
 
 - name: Install ohmyzsh (please don't tell people i use this)
-  shell: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
+  command: if ! -d ~/.oh-my-zsh; then curl -L https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh; fi
+  args:
+    creates: ~/.zshrc
   tags:
     - zsh
     - install
