@@ -3,7 +3,7 @@
   apt_repository:
    repo: ppa:kdenlive/kdenlive-stable
    state: present
-   update_cache: True
+   update_cache: true
   tags:
     - productivity
 

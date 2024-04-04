@@ -12,6 +12,7 @@
     name: "{{ username }}"
     groups: docker
     state: present
+    append: yes
   tags:
     - docker
 
