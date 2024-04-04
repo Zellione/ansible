@@ -74,19 +74,19 @@
   tags:
     - core
 
-- name: Install NVIDIA Drivers
-  become: true
-  community.general.pacman:
-    name:
-      - nvidia
-      - nvidia-settings
-      - nvidia-utils
-      - cuda
-      - cuda-tools
-      - cudnn
-  tags:
-    - core
-    - drivers
+# - name: Install NVIDIA Drivers
+#   become: true
+#   community.general.pacman:
+#     name:
+#       - nvidia
+#       - nvidia-settings
+#       - nvidia-utils
+#       - cuda
+#       - cuda-tools
+#       - cudnn
+#   tags:
+#     - core
+#     - drivers
 
 - name: Install pipewire and replace pulseaudio
   become: true
