@@ -34,6 +34,7 @@
     dest: "{{ ansible_env.HOME }}/.fonts/{{ item.path | basename }}"
     src: "{{ item.path }}"
     remote_src: yes
+    force: false
   loop: "{{ fonts_to_install.files }}"
   notify:
     - update font cache

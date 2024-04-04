@@ -4,7 +4,7 @@ HOME=/home/zellione
 USER=zellione
 
 sudo pacman -Syyu --noconfirm
-sudo pacman -S --noconfirm sudo ansible
+sudo pacman -S --needed --noconfirm sudo ansible
 
 mkdir -p ~/.ansible/plugins/modules
 curl -o ~/.ansible/plugins/modules/aur.py https://raw.githubusercontent.com/kewlfft/ansible-aur/master/plugins/modules/aur.py
