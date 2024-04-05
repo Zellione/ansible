@@ -57,6 +57,7 @@
       - lsof
       - htop
       - moreutils
+      - neofetch
     state: latest
   tags:
     - core
