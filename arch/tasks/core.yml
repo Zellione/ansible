@@ -58,6 +58,7 @@
       - htop
       - moreutils
       - neofetch
+      - lazygit
     state: latest
   tags:
     - core
