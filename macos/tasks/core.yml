@@ -1,0 +1,14 @@
+- name: Install Core Utils
+  community.general.homebrew:
+    name:
+     - neofetch
+     - htop
+     - alacritty
+     - bat
+     - jq
+     - ripgrep
+     - fzf
+     - wget
+    state: latest
+  tags:
+    - core

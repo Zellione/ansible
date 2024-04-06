@@ -1,0 +1,13 @@
+- name: Tab Yabai Repo
+  community.general.homebrew_tap:
+    name: koekeishiya/formulae
+  tags:
+    - yabai
+
+- name: Install Yabai
+  community.general.homebrew:
+    name:
+      - koekeishiya/formulae/yabai
+    state: latest
+  tags:
+    - yabai

@@ -1,0 +1,26 @@
+- hosts: localhost
+  vars:
+    source_key: "../.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    dest_pub_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
+    username: "zellione"
+  pre_tasks:
+    - name: Update homebrew
+      community.general.homebrew:
+        update_homebrew: true
+        upgrade_all: true
+        state: present
+      tags:
+        - install
+  tasks:
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/core.yml
+    - import_tasks: tasks/nvim.yml
+    - import_tasks: tasks/fonts.yml
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/productivity.yml
+    - import_tasks: tasks/node.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/programming.yml
+    - import_tasks: tasks/yabai.yml

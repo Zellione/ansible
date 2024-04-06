@@ -1,0 +1,51 @@
+- name: Install Typescript
+  become: true
+  shell: npm install -g typescript
+  tags:
+    - node
+    - programming
+
+- name: Install Java
+  community.general.homebrew:
+    name:
+      - openjdk
+    state: latest
+  tags:
+    - java
+    - programming
+
+- name: Install Maven
+  community.general.homebrew:
+    name:
+      - maven
+    state: latest
+  tags:
+    - maven
+    - programming
+
+- name: Install Go
+  community.general.homebrew:
+    name:
+      - go
+    state: latest
+  tags:
+    - golang
+    - programming
+
+- name: Install Rust
+  community.general.homebrew:
+    name:
+      - rust
+    state: latest
+  tags:
+    - rust
+    - programming
+
+- name: Install Python
+  community.general.homebrew:
+    name:
+      - python
+    state: latest
+  tags:
+    - python
+    - programming

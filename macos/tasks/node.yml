@@ -1,0 +1,14 @@
+- name: Install N
+  community.general.homebrew:
+    name:
+      - n
+    state: latest
+  tags:
+    - node
+
+- name: Install Node
+  become: true
+  shell: n lts
+  tags:
+    - node
+
