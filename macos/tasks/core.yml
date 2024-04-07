@@ -5,6 +5,7 @@
      - htop
      - alacritty
      - bat
+     - most
      - jq
      - ripgrep
      - fzf

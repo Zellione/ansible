@@ -24,3 +24,11 @@
     state: latest
   tags:
     - productivity
+
+- name: Install Productivity Command Line Tools
+  community.general.homebrew:
+    name:
+      - lazygit
+    state: latest
+  tags:
+    - productivity
