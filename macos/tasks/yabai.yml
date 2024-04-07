@@ -8,6 +8,17 @@
   community.general.homebrew:
     name:
       - koekeishiya/formulae/yabai
+      - koekeishiya/formulae/skhd
     state: latest
+  tags:
+    - yabai
+
+- name: Start Yabai
+  shell: "yabai --start-service"
+  tags:
+    - yabai
+
+- name: Start SKHD
+  shell: "skhd --start-service"
   tags:
     - yabai

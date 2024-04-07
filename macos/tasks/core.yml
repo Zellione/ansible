@@ -12,3 +12,17 @@
     state: latest
   tags:
     - core
+
+- name: Install UI Utils
+  community.general.homebrew:
+    name:
+     - iterm2
+     - visual-studio-code
+     - google-chrome
+     - firefox
+     - spotify
+     - raycast
+    state: latest
+  tags:
+    - core
+    - ui
