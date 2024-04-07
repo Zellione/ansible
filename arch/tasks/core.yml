@@ -35,9 +35,12 @@
       - wireshark-qt
       - networkmanager
       - network-manager-applet
+      - openvpn
+      - inetutils
     state: latest
   tags:
     - core
+    - connectivity
 
 - name: Install core packages for productivity
   become: true
@@ -59,10 +62,21 @@
       - moreutils
       - neofetch
       - lazygit
+      - github-cli
     state: latest
   tags:
     - core
     - productivity
+
+- name: Install core packages for pentesting
+  become: true
+  community.general.pacman:
+    name:
+      - nmap
+    state: latest
+  tags:
+    - core
+    - pentesting
 
 - name: Install TPM (TMUX plugin manager)
   ansible.builtin.git:
