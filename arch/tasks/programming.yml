@@ -37,6 +37,9 @@
     name:
       - python
       - python-pip
+  tags:
+    - programming
+    - python
 
 - name: Install codelldap
   become: yes
@@ -45,13 +48,25 @@
     name: codelldb-bin
     use: yay
     state: latest
+  ignore_errors: yes
   tags:
     - programming
     - clang
-  ignore_errors: yes
 
 - name: Install Java
   become: true
   community.general.pacman:
     name:
       - jdk17-openjdk
+  tags:
+    - programming
+    - java
+
+- name: Install Rust
+  become: true
+  community.general.pacman:
+    name:
+      - rustup
+  tags:
+    - programming
+    - rust

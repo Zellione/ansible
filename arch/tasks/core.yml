@@ -5,6 +5,7 @@
       - zip
       - man-db
       - mesa-utils
+      - prettier
     state: latest
   tags:
     - core
