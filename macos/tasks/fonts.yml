@@ -7,6 +7,7 @@
 - name: Install Fonts
   community.general.homebrew:
     name:
+      - homebrew/cask-fonts/font-0xproto-nerd-font
       - homebrew/cask-fonts/font-3270-nerd-font
       - homebrew/cask-fonts/font-fira-mono-nerd-font
       - homebrew/cask-fonts/font-inconsolata-go-nerd-font
