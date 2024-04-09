@@ -58,6 +58,8 @@
       - kdenlive
       - gimp
       - less
+      - most
+      - bat
       - lsof
       - htop
       - moreutils
