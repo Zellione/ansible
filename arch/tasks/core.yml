@@ -26,6 +26,16 @@
   tags:
     - core
 
+- name: Install databases
+  become: true
+  community.general.pacman:
+    name:
+      - redis
+    state: latest
+  tags:
+    - core
+    - databases
+
 - name: Install core packages for connectivity
   become: true
   community.general.pacman:
@@ -38,6 +48,8 @@
       - network-manager-applet
       - openvpn
       - inetutils
+      - smbclient
+      - freerdp2
     state: latest
   tags:
     - core
@@ -80,6 +92,18 @@
   tags:
     - core
     - pentesting
+
+- name: Install community packages for pentesting
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: wordlists
+    use: yay
+    state: latest
+  tags:
+    - core
+    - pentesting
+
 
 - name: Install TPM (TMUX plugin manager)
   ansible.builtin.git:
