@@ -36,6 +36,19 @@
     - core
     - databases
 
+- name: Install community databases packages
+  become: yes
+  become_user: aur_builder
+  aur:
+    name:
+      - mongodb-bin
+      - mongosh-bin
+    use: yay
+    state: latest
+  tags:
+    - core
+    - databases
+
 - name: Install core packages for connectivity
   become: true
   community.general.pacman:
