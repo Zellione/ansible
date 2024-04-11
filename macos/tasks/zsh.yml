@@ -18,3 +18,10 @@
     dest: "~/.oh-my-zsh/plugins/zsh-syntax-highlighting"
   tags:
     - zsh
+
+- name: Install the zsh custom theme powerlevel10k
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
+  tags:
+    - zsh
