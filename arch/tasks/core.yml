@@ -27,6 +27,26 @@
   tags:
     - core
 
+- name: Download yay from AUR Repository
+  ansible.builtin.git:
+    repo: 'https://aur.archlinux.org/yay.git'
+    dest: "{{ personal }}/yay"
+  tags:
+    - core
+
+- name: Yay Directory
+  stat:
+    path: /usr/bin/yay
+  register: yay_dir
+  tags:
+    - core
+
+- name: Build and install yay
+  shell: "cd {{ personal }}/yay && makepkg -si --noconfirm"
+  when: "yay_dir.stat.exists == false"
+  tags:
+    - core
+
 - name: Install databases
   become: true
   community.general.pacman:
@@ -133,25 +153,6 @@
     - core
     - productivity
 
-- name: Download yay from AUR Repository
-  ansible.builtin.git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: "{{ personal }}/yay"
-  tags:
-    - core
-
-- name: Yay Directory
-  stat:
-    path: /usr/bin/yay
-  register: yay_dir
-  tags:
-    - core
-
-- name: Build and install yay
-  shell: "cd {{ personal }}/yay && makepkg -si --noconfirm"
-  when: "yay_dir.stat.exists == false"
-  tags:
-    - core
 
 # - name: Install NVIDIA Drivers
 #   become: true
