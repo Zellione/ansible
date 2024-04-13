@@ -214,3 +214,25 @@
   tags:
     - core
     - browsers
+
+- name: Download or Update wlogout Repository
+  ansible.builtin.git:
+    repo: "https://github.com/ArtsyMacaw/wlogout.git"
+    recursive: yes
+    dest: "{{ personal }}/wlogout"
+  tags:
+    - core
+    - ui
+
+- name: Build WLogout
+  shell: "cd {{ personal }}/wlogout && meson build && ninja -C build"
+  tags:
+    - core
+    - ui
+
+- name: Install WLogout
+  become: true
+  shell: "cd {{ personal }}/wlogout && ninja -C build install"
+  tags:
+    - core
+    - ui
