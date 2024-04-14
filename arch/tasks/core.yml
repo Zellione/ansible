@@ -6,6 +6,7 @@
       - man-db
       - mesa-utils
       - prettier
+      - bc
     state: latest
   tags:
     - core
@@ -23,6 +24,26 @@
       - pkgconf
       - gettext
     state: latest
+  tags:
+    - core
+
+- name: Download yay from AUR Repository
+  ansible.builtin.git:
+    repo: 'https://aur.archlinux.org/yay.git'
+    dest: "{{ personal }}/yay"
+  tags:
+    - core
+
+- name: Yay Directory
+  stat:
+    path: /usr/bin/yay
+  register: yay_dir
+  tags:
+    - core
+
+- name: Build and install yay
+  shell: "cd {{ personal }}/yay && makepkg -si --noconfirm"
+  when: "yay_dir.stat.exists == false"
   tags:
     - core
 
@@ -146,17 +167,6 @@
     - core
     - productivity
 
-- name: Download yay from AUR Repository
-  ansible.builtin.git:
-    repo: 'https://aur.archlinux.org/yay.git'
-    dest: "{{ personal }}/yay"
-  tags:
-    - core
-
-- name: Build and install yay
-  shell: "cd {{ personal }}/yay && makepkg -si --noconfirm"
-  tags:
-    - core
 
 # - name: Install NVIDIA Drivers
 #   become: true
@@ -218,3 +228,25 @@
   tags:
     - core
     - browsers
+
+- name: Download or Update wlogout Repository
+  ansible.builtin.git:
+    repo: "https://github.com/ArtsyMacaw/wlogout.git"
+    recursive: yes
+    dest: "{{ personal }}/wlogout"
+  tags:
+    - core
+    - ui
+
+- name: Build WLogout
+  shell: "cd {{ personal }}/wlogout && meson build && ninja -C build"
+  tags:
+    - core
+    - ui
+
+- name: Install WLogout
+  become: true
+  shell: "cd {{ personal }}/wlogout && ninja -C build install"
+  tags:
+    - core
+    - ui
