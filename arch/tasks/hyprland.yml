@@ -1,0 +1,36 @@
+- name: Install Hyprland Dependencies
+  become: true
+  community.general.pacman:
+    name:
+      - gobject-introspection
+      - gtk-layer-shell
+      - scdoc
+  tags:
+    - hyprland
+
+- name: Install Hyprland
+  become: true
+  community.general.pacman:
+    name:
+      - hyprland
+  tags:
+    - hyprland
+
+- name: Download or Update wlogout Repository
+  ansible.builtin.git:
+    repo: "https://github.com/ArtsyMacaw/wlogout.git"
+    recursive: yes
+    dest: "{{ personal }}/wlogout"
+  tags:
+    - hyprland
+
+- name: Build WLogout
+  shell: "cd {{ personal }}/wlogout && meson build && ninja -C build"
+  tags:
+    - hyprland
+
+- name: Install WLogout
+  become: true
+  shell: "cd {{ personal }}/wlogout && ninja -C build install"
+  tags:
+    - hyprland

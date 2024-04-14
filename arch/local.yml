@@ -28,10 +28,9 @@
     - import_tasks: tasks/nvim.yml
     - import_tasks: tasks/lsp.yml
     - import_tasks: tasks/docker.yml
-    # - import_tasks: tasks/gnome.yml
-    # - import_tasks: tasks/language-input.yml
     - import_tasks: tasks/repositories.yml
     - import_tasks: tasks/multimedia.yml
+    - import_tasks: tasks/hyprland.yml
   handlers:
     - name: Update font cache
       command: fc-cache -fv
