@@ -7,6 +7,7 @@
       - mesa-utils
       - prettier
       - bc
+      - linux-headers
     state: latest
   tags:
     - core
