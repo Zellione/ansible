@@ -19,6 +19,7 @@
       - cmake
       - unzip
       - ninja
+      - meson
       - curl
       - git
       - pkgconf
