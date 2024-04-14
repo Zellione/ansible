@@ -1,3 +1,11 @@
+- name: Install Terminal emulator
+  become: true
+  community.general.pacman:
+    name:
+      - kitty
+  tags:
+    - hyprland
+
 - name: Install Hyprland Dependencies
   become: true
   community.general.pacman:
