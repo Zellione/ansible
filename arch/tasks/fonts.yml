@@ -36,8 +36,20 @@
     remote_src: yes
     force: false
   loop: "{{ fonts_to_install.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
   notify:
     - update font cache
+  tags:
+    - nerd-fonts
+    - fonts
+
+- name: Install fonts from pacman
+  become: true
+  community.general.pacman:
+    name:
+      - ttf-fira-code
+    state: latest
   tags:
     - nerd-fonts
     - fonts
