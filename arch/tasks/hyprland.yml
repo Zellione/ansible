@@ -16,17 +16,64 @@
       - python-pywal
       - jq
       - pamixer
+      - pipewire-alsa
       - bluez
       - bluez-utils
       - blueman
+      - gnome-system-monitor
+      - polkit-gnome
+      - imagemagick
+      - cliphist
+      - grim
+      - gvfs
+      - gvfs-mtp
+      - kvantum
+      - network-manager-applet
+      - pavucontrol
+      - playerctl
+      - qt5ct
+      - qt6ct
+      - qt6-svg
+      - slurp
+      - swappy
+      - swayidle
+      - wl-clipboard
+      - xdg-user-dirs
+      - xdg-utils
+      - yad
+      - brightnessctl
+      - eog
+      - mousepad
+      - mpv
+      - mpv-mpris
+      - nvtop
+      - pacman-contrib
+      - yt-dlp
   tags:
     - hyprland
+
+- name: Install Hyprland Fonts
+  become: true
+  community.general.pacman:
+    name:
+      - adobe-source-code-pro-fonts
+      - noto-fonts-emoji
+      - otf-font-awesome
+      - ttf-droid
+      - ttf-jetbrains-mono
+      - ttf-jetbrains-mono-nerd
 
 - name: Install Hyprland community Dependencies
   become: yes
   become_user: aur_builder
   aur:
-    name: swww
+    name:
+      - swww
+      - swaync
+      - cava
+      - rofi-lbonn-wayland-git
+      - swaylock-effects-git
+      - nwg-look-bin
     use: yay
     state: latest
   tags:
