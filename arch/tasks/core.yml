@@ -117,6 +117,7 @@
       - neofetch
       - lazygit
       - github-cli
+      - jq
     state: latest
   tags:
     - core

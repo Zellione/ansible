@@ -13,6 +13,31 @@
       - gobject-introspection
       - gtk-layer-shell
       - scdoc
+      - python-pywal
+      - jq
+      - pamixer
+      - bluez
+      - bluez-utils
+      - blueman
+  tags:
+    - hyprland
+
+- name: Install Hyprland community Dependencies
+  become: yes
+  become_user: aur_builder
+  aur:
+    name: swww
+    use: yay
+    state: latest
+  tags:
+    - hyprland
+
+
+- name: Install Waybar
+  become: true
+  community.general.pacman:
+    name:
+      - waybar
   tags:
     - hyprland
 
@@ -20,6 +45,7 @@
   become: true
   community.general.pacman:
     name:
+      - wl-clipboard
       - hyprland
   tags:
     - hyprland
@@ -40,5 +66,14 @@
 - name: Install WLogout
   become: true
   shell: "cd {{ personal }}/wlogout && ninja -C build install"
+  tags:
+    - hyprland
+
+- name: Activate Bluetooth daemon
+  become: true
+  systemd:
+    name: bluetooth
+    enabled: yes
+    state: started
   tags:
     - hyprland
