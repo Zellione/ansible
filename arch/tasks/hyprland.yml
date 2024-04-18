@@ -74,6 +74,7 @@
       - rofi-lbonn-wayland-git
       - swaylock-effects-git
       - nwg-look-bin
+      - waybar-mpris-git
     use: yay
     state: latest
   tags:
@@ -122,5 +123,23 @@
     name: bluetooth
     enabled: yes
     state: started
+  tags:
+    - hyprland
+
+- name: Create input group if not exists
+  become: true
+  ansible.builtin.group:
+    name: input
+    state: present
+  tags:
+    - hyprland
+
+- name: Add user to input group
+  become: true
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups: input
+    state: present
+    append: yes
   tags:
     - hyprland
