@@ -70,3 +70,9 @@
   tags:
     - programming
     - rust
+
+- name: Run rustup init default
+  command: rustup default stable
+  tags:
+    - programming
+    - rust
