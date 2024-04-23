@@ -143,3 +143,63 @@
     append: yes
   tags:
     - hyprland
+
+- name: Install sddm
+  become: true
+  community.general.pacman:
+    name:
+      - sddm
+      - qt5-graphicaleffects
+      - qt5-quickcontrols2
+      - qt5-svg
+  tags:
+    - hyprland
+
+- name: Enable sddm
+  become: true
+  systemd:
+    name: sddm
+    enabled: yes
+    state: started
+  tags:
+    - hyprland
+
+- name: Create sddm directory
+  become: true
+  ansible.builtin.file:
+    path: /etc/sddm.conf.d
+    state: directory
+  tags:
+    - hyprland
+
+- name: Create wayland session directory
+  become: true
+  ansible.builtin.file:
+    path: /usr/share/wayland-sessions
+    state: directory
+  tags:
+    - hyprland
+
+- name: Create sddm themes directory
+  become: true
+  ansible.builtin.file:
+    path: /usr/share/sddm/themes
+    state: directory
+  tags:
+    - hyprland
+
+- name: Checkout sddm theme
+  become: true
+  ansible.builtin.git:
+    repo: "https://github.com/JaKooLit/simple-sddm.git"
+    dest: "/usr/share/sddm/themes/simple-sddm"
+  tags:
+    - hyprland
+
+- name: Copy sddm config file to sddm config directory
+  become: true
+  ansible.builtin.copy:
+    src: "../configs/sddm/10-theme.conf"
+    dest: /etc/sddm.conf.d/10-theme.conf
+  tags:
+    - hyprland
