@@ -221,13 +221,13 @@
   tags:
     - hyprland
 
-- name: Ensure autoextract script is executable
-  shell: "chmod +x {{ personal }}/GTK-themes-icons/autoextract.sh"
+- name: Ensure auto-extract script is executable
+  shell: "chmod +x {{ personal }}/GTK-themes-icons/auto-extract.sh"
   tags:
     - hyprland
 
 - name: Run Autoextract command
-  shell: "cd {{ personal }}/GTK-themes-icons && ./autoextract.sh"
+  shell: "cd {{ personal }}/GTK-themes-icons && ./auto-extract.sh"
   tags:
     - hyprland
 
@@ -239,6 +239,6 @@
     - hyprland
 
 - name: Extract Bibata-Modern-Ice cursor theme
-  shell: "cd {{ personal }}/Arch-Hyprland && tar -xf Bibata-Modern-Ice.zip -C ~/.icons"
+  shell: "cd {{ personal }}/Arch-Hyprland/assets && tar -xf Bibata-Modern-Ice.tar.xz -C ~/.icons"
   tags:
     - hyprland
