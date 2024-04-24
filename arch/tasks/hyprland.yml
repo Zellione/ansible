@@ -17,7 +17,11 @@
       - jq
       - thunar
       - pamixer
+      - pipewire
       - pipewire-alsa
+      - pipewire-pulse
+      - pipewire-audio
+      - wireplumber
       - bluez
       - bluez-utils
       - blueman
@@ -96,6 +100,7 @@
     name:
       - wl-clipboard
       - hyprland
+      - hyprcursor
   tags:
     - hyprland
 
