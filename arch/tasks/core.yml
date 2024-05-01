@@ -115,6 +115,7 @@
       - htop
       - moreutils
       - neofetch
+      - fastfetch
       - lazygit
       - github-cli
       - jq
