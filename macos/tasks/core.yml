@@ -9,6 +9,11 @@
      - jq
      - ripgrep
      - fzf
+     - bash
+     - bc
+     - coreutils
+     - gawk
+     - gsed
      - wget
     state: latest
   tags:
