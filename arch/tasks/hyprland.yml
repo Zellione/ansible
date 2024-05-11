@@ -216,7 +216,7 @@
     name:
       - unzip
       - gtk-engine-murrine
-    tags:
+  tags:
     - hyprland
 
 - name: Clone Tokyo Theme GTK themes and icons repository
