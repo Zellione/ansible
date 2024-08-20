@@ -2,15 +2,12 @@
 
 set -e
 
-HOME=/Users/snagels
-USER=snagels
+HOME=/Users/sna06
+USER=sna06
 
-if [ ! -f /usr/local/bin/brew ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
 
 brew update
 brew install ansible
 ansible-galaxy collection install community.general
 
-ansible-playbook local.yml --ask-become-pass
+ansible-playbook local.yml

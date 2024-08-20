@@ -4,7 +4,7 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     dest_pub_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
     personal: "{{ lookup('env', 'HOME') }}/personal"
-    username: "sebastiannagels"
+    username: "sna06"
   pre_tasks:
     - name: Update homebrew
       community.general.homebrew:

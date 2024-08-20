@@ -22,7 +22,6 @@
 - name: Install UI Utils
   community.general.homebrew:
     name:
-     - iterm2
      - visual-studio-code
      - google-chrome
      - firefox

@@ -32,3 +32,11 @@
     state: latest
   tags:
     - productivity
+
+- name: Install Productivity GUI Tools
+  community.general.homebrew:
+    name:
+      - medis
+    state: latest
+  tags:
+    - productivity
