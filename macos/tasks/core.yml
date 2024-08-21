@@ -3,6 +3,7 @@
     name:
      - neofetch
      - htop
+     - btop
      - kitty
      - bat
      - most
