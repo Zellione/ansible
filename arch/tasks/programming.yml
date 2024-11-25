@@ -24,7 +24,6 @@
     name:
       - clang
       - clang14
-      - clang16
       - ccache
     state: latest
   tags:
@@ -76,3 +75,18 @@
   tags:
     - programming
     - rust
+
+- name: Install PHP
+  become: true
+  community.general.pacman:
+    name:
+      - php
+      - xdebug
+      - php-redis
+      - php-sqlite
+      - php-imagick
+      - php-gd
+      - php-fpm
+  tags:
+    - programming
+    - php

@@ -40,3 +40,10 @@
     dest: "~/.oh-my-zsh/custom/themes/powerlevel10k"
   tags:
     - zsh
+
+- name: Install the zsh fzf git mod
+  ansible.builtin.git:
+    repo: 'https://github.com/junegunn/fzf-git.sh.git'
+    dest: "~/tools/fzf-git.sh.git"
+  tags:
+    - zsh

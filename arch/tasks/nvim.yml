@@ -1,4 +1,5 @@
 - name: Remove neovim
+  become: true
   shell: rm -rf ~/neovim
   tags:
     - neovim
@@ -7,7 +8,7 @@
   ansible.builtin.git:
     repo: 'https://github.com/neovim/neovim.git'
     dest: "{{ lookup('env', 'HOME') }}/neovim"
-    version: "release-0.9"
+    version: "release-0.10"
   tags:
     - neovim
 
