@@ -25,6 +25,7 @@
       - git
       - pkgconf
       - gettext
+      - man-pages
     state: latest
   tags:
     - core
