@@ -47,3 +47,10 @@
     dest: "~/tools/fzf-git.sh.git"
   tags:
     - zsh
+
+- name: Install the zsh plugin npm autocompletion
+  ansible.builtin.git:
+    repo: 'https://github.com/grigorii-zander/zsh-npm-scripts-autocomplete.git'
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-npm-scripts-autocomplete"
+  tags:
+    - zsh
