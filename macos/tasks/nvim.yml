@@ -3,3 +3,22 @@
     name:
       - neovim
     state: latest
+  tags:
+    - neovim
+
+- name: Checkout / Update vscode-js-debug
+  ansible.builtin.git:
+    repo: "https://www.github.com/microsoft/vscode-js-debug.git"
+    dest: "{{ lookup('env', 'HOME') }}/tools/vscode-js-debug"
+    recursive: yes
+    update: yes
+    force: yes
+  tags:
+    - neovim
+
+- name: Install vscode-js-debug
+  shell:
+    cmd: npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out
+    chdir: "{{ lookup('env', 'HOME') }}/tools/vscode-js-debug"
+  tags:
+    - neovim
