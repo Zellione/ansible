@@ -80,6 +80,7 @@
       - swaylock-effects-git
       - nwg-look-bin
       - waybar-mpris-git
+      - wallust
     use: yay
     state: latest
   tags:
