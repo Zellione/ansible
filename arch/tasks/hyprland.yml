@@ -101,6 +101,7 @@
     name:
       - wl-clipboard
       - hyprland
+      - hyprland-qtutils
       - hyprcursor
   tags:
     - hyprland
